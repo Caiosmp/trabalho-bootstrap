@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doe Vida | Doação de Sangue</title>
+  <link rel="icon" type="image/png" href="../img/logo-icone.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <header class="border-b border-gray-200 bg-white">
+    <nav class="mx-auto max-w-6xl px-4">
+      <div class="flex flex-wrap items-center justify-between py-3">
+        <a href="#inicio" class="flex items-center gap-2 text-xl font-bold text-red-700">
+          <img src="../img/logo-icone.png" alt="" width="36" height="36">
+          Doe Vida
+        </a>
+
+        <button id="botaoMenu" type="button"
+          class="rounded-md border border-gray-300 p-2 text-gray-700 hover:bg-gray-100 lg:hidden"
+          aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <ul id="menu" class="hidden w-full pt-2 lg:flex lg:w-auto lg:items-center lg:gap-6 lg:pt-0">
+          <li><a href="#campanhas" class="block py-2 text-gray-700 hover:text-red-700">Campanhas</a></li>
+          <li><a href="#requisitos" class="block py-2 text-gray-700 hover:text-red-700">Quem pode doar</a></li>
+          <li><a href="#locais" class="block py-2 text-gray-700 hover:text-red-700">Locais</a></li>
+          <li><a href="#agendar" class="block py-2 text-gray-700 hover:text-red-700">Agendar</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="py-12 text-center">
+      <div class="mx-auto max-w-6xl px-4">
+        <img src="../img/logo-completa.png" alt="Doe Vida" width="320" class="mx-auto mb-6 h-auto max-w-full">
+        <h1 class="text-4xl font-bold sm:text-5xl">Doe sangue, salve vidas</h1>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">Uma única doação pode ajudar até quatro pessoas. Veja se você pode doar e agende seu horário.</p>
+        <a href="#agendar" class="mt-6 inline-block rounded-md bg-red-700 px-6 py-3 text-lg font-medium text-white hover:bg-red-800">Agendar doação</a>
+      </div>
+    </section>
+
+    <section id="campanhas" class="bg-gray-50 py-12">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="mb-6 text-center text-2xl font-bold">Campanhas</h2>
+
+        <div class="relative overflow-hidden rounded-lg" aria-roledescription="carrossel" aria-label="Campanhas">
+          <div id="trilho" class="flex transition-transform duration-500 ease-in-out motion-reduce:transition-none">
+            <div class="flex w-full shrink-0 items-center justify-center bg-red-700 px-14 py-16 text-center text-white sm:px-20">
+              <div class="max-w-2xl">
+                <h3 class="text-2xl font-bold">Estoque de O negativo em alerta</h3>
+                <p class="mt-2">O tipo O negativo pode ser doado para qualquer pessoa. Se esse é o seu tipo, sua doação é urgente.</p>
+              </div>
+            </div>
+
+            <div class="flex w-full shrink-0 items-center justify-center bg-gray-900 px-14 py-16 text-center text-white sm:px-20">
+              <div class="max-w-2xl">
+                <h3 class="text-2xl font-bold">Primeira vez? É rápido e seguro</h3>
+                <p class="mt-2">Todo o processo leva cerca de uma hora, e o material usado é descartável. Nossa equipe acompanha você do começo ao fim.</p>
+              </div>
+            </div>
+
+            <div class="flex w-full shrink-0 items-center justify-center bg-gray-600 px-14 py-16 text-center text-white sm:px-20">
+              <div class="max-w-2xl">
+                <h3 class="text-2xl font-bold">Seja um doador regular</h3>
+                <p class="mt-2">Homens podem doar a cada 2 meses e mulheres a cada 3 meses. Doar sempre mantém os estoques seguros o ano todo.</p>
+              </div>
+            </div>
+          </div>
+
+          <button id="anterior" type="button"
+            class="absolute inset-y-0 left-0 flex w-12 items-center justify-center text-white/70 hover:text-white sm:w-16"
+            aria-label="Anterior">
+            <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <button id="proximo" type="button"
+            class="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-white/70 hover:text-white sm:w-16"
+            aria-label="Próximo">
+            <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+
+          <div class="absolute inset-x-0 bottom-4 flex justify-center gap-2">
+            <button type="button" class="indicador h-1 w-8 rounded bg-white" aria-label="Campanha 1" aria-current="true"></button>
+            <button type="button" class="indicador h-1 w-8 rounded bg-white/50" aria-label="Campanha 2" aria-current="false"></button>
+            <button type="button" class="indicador h-1 w-8 rounded bg-white/50" aria-label="Campanha 3" aria-current="false"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="requisitos" class="py-12">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-center text-2xl font-bold">Quem pode doar</h2>
+        <p class="mb-6 mt-2 text-center text-gray-600">Confira os requisitos básicos antes de agendar sua doação.</p>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <article class="rounded-lg bg-white p-6 shadow-sm ring-1 ring-gray-100">
+            <span class="inline-block rounded bg-red-700 px-2 py-0.5 text-xs font-bold text-white">1</span>
+            <h3 class="mt-4 text-lg font-semibold">Idade</h3>
+            <p class="mt-2 text-gray-700">Ter entre 16 e 69 anos. Menores de 18 precisam de autorização dos responsáveis, e a primeira doação deve ser feita até os 60 anos.</p>
+          </article>
+
+          <article class="rounded-lg bg-white p-6 shadow-sm ring-1 ring-gray-100">
+            <span class="inline-block rounded bg-red-700 px-2 py-0.5 text-xs font-bold text-white">2</span>
+            <h3 class="mt-4 text-lg font-semibold">Peso</h3>
+            <p class="mt-2 text-gray-700">Pesar no mínimo 50 kg. Abaixo disso, a quantidade de sangue retirada poderia fazer mal ao doador.</p>
+          </article>
+
+          <article class="rounded-lg bg-white p-6 shadow-sm ring-1 ring-gray-100">
+            <span class="inline-block rounded bg-red-700 px-2 py-0.5 text-xs font-bold text-white">3</span>
+            <h3 class="mt-4 text-lg font-semibold">Descansado e alimentado</h3>
+            <p class="mt-2 text-gray-700">Ter dormido pelo menos 6 horas e não estar em jejum. Evite comidas gordurosas nas 3 horas antes da doação.</p>
+          </article>
+
+          <article class="rounded-lg bg-white p-6 shadow-sm ring-1 ring-gray-100">
+            <span class="inline-block rounded bg-red-700 px-2 py-0.5 text-xs font-bold text-white">4</span>
+            <h3 class="mt-4 text-lg font-semibold">Documento com foto</h3>
+            <p class="mt-2 text-gray-700">Levar um documento oficial original com foto, como RG, CNH ou carteira de trabalho.</p>
+          </article>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="#agendar" class="inline-block rounded-md border border-red-700 px-5 py-2 text-red-700 hover:bg-red-700 hover:text-white">Cumpro os requisitos, quero agendar</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="locais" class="bg-gray-50 py-12">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-center text-2xl font-bold">Locais de coleta</h2>
+        <p class="mb-6 mt-2 text-center text-gray-600">Escolha o posto mais perto de você e confira os horários.</p>
+
+        <div class="overflow-x-auto rounded-lg bg-white shadow-sm">
+          <table class="w-full whitespace-nowrap text-left">
+            <caption class="caption-bottom px-4 py-3 text-left text-sm text-gray-600">Horários de funcionamento dos postos de coleta.</caption>
+            <thead class="bg-gray-900 text-white">
+              <tr class="*:px-4 *:py-3 *:font-semibold">
+                <th scope="col">Unidade</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Dias</th>
+                <th scope="col">Horário</th>
+                <th scope="col">Atendimento</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr class="*:px-4 *:py-3 even:bg-gray-50 hover:bg-red-50">
+                <th scope="row" class="font-semibold">Doe Vida Central</th>
+                <td>Comércio</td>
+                <td>Segunda a sábado</td>
+                <td>7h às 18h</td>
+                <td><span class="rounded bg-green-700 px-2 py-0.5 text-xs font-semibold text-white">Sem agendamento</span></td>
+              </tr>
+              <tr class="*:px-4 *:py-3 even:bg-gray-50 hover:bg-red-50">
+                <th scope="row" class="font-semibold">Doe Vida Barra</th>
+                <td>Barra</td>
+                <td>Segunda a sexta</td>
+                <td>8h às 17h</td>
+                <td><span class="rounded bg-gray-600 px-2 py-0.5 text-xs font-semibold text-white">Com agendamento</span></td>
+              </tr>
+              <tr class="*:px-4 *:py-3 even:bg-gray-50 hover:bg-red-50">
+                <th scope="row" class="font-semibold">Doe Vida Pituba</th>
+                <td>Pituba</td>
+                <td>Segunda a sábado</td>
+                <td>7h às 16h</td>
+                <td><span class="rounded bg-green-700 px-2 py-0.5 text-xs font-semibold text-white">Sem agendamento</span></td>
+              </tr>
+              <tr class="*:px-4 *:py-3 even:bg-gray-50 hover:bg-red-50">
+                <th scope="row" class="font-semibold">Doe Vida Liberdade</th>
+                <td>Liberdade</td>
+                <td>Terça a sexta</td>
+                <td>8h às 14h</td>
+                <td><span class="rounded bg-gray-600 px-2 py-0.5 text-xs font-semibold text-white">Com agendamento</span></td>
+              </tr>
+              <tr class="*:px-4 *:py-3 even:bg-gray-50 hover:bg-red-50">
+                <th scope="row" class="font-semibold">Doe Vida Itapuã</th>
+                <td>Itapuã</td>
+                <td>Segunda a sexta</td>
+                <td>8h às 17h</td>
+                <td><span class="rounded bg-gray-600 px-2 py-0.5 text-xs font-semibold text-white">Com agendamento</span></td>
+              </tr>
+              <tr class="*:px-4 *:py-3 even:bg-gray-50 hover:bg-red-50">
+                <th scope="row" class="font-semibold">Doe Vida Cajazeiras</th>
+                <td>Cajazeiras</td>
+                <td>Quarta a sábado</td>
+                <td>8h às 15h</td>
+                <td><span class="rounded bg-green-700 px-2 py-0.5 text-xs font-semibold text-white">Sem agendamento</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="agendar" class="py-12">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 id="titulo-agendar" class="text-center text-2xl font-bold">Agendar doação</h2>
+        <p class="mb-6 mt-2 text-center text-gray-600">Preencha seus dados e escolha o melhor dia para doar.</p>
+
+        <form id="formAgendamento" class="mx-auto max-w-3xl rounded-lg bg-white p-6 shadow-sm ring-1 ring-gray-100" aria-labelledby="titulo-agendar">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div>
+              <label for="nome" class="mb-1 block font-medium">Nome completo</label>
+              <input type="text" id="nome" name="nome" autocomplete="name" minlength="3" required
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 user-invalid:border-red-600">
+            </div>
+
+            <div>
+              <label for="email" class="mb-1 block font-medium">E-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" required
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 user-invalid:border-red-600">
+            </div>
+
+            <div>
+              <label for="telefone" class="mb-1 block font-medium">Telefone</label>
+              <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(71) 99999-9999" aria-describedby="ajuda-telefone" required
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 user-invalid:border-red-600">
+              <p id="ajuda-telefone" class="mt-1 text-sm text-gray-600">Vamos enviar um lembrete na véspera da doação.</p>
+            </div>
+
+            <div>
+              <label for="tipo" class="mb-1 block font-medium">Tipo sanguíneo</label>
+              <select id="tipo" name="tipo" required
+                class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 user-invalid:border-red-600">
+                <option value="" selected disabled>Selecione</option>
+                <option>A+</option>
+                <option>A−</option>
+                <option>B+</option>
+                <option>B−</option>
+                <option>AB+</option>
+                <option>AB−</option>
+                <option>O+</option>
+                <option>O−</option>
+                <option>Não sei</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="posto" class="mb-1 block font-medium">Local de coleta</label>
+              <select id="posto" name="posto" required
+                class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 user-invalid:border-red-600">
+                <option value="" selected disabled>Selecione</option>
+                <option>Doe Vida Central</option>
+                <option>Doe Vida Barra</option>
+                <option>Doe Vida Pituba</option>
+                <option>Doe Vida Liberdade</option>
+                <option>Doe Vida Itapuã</option>
+                <option>Doe Vida Cajazeiras</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="data" class="mb-1 block font-medium">Data da doação</label>
+              <input type="date" id="data" name="data" required
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 user-invalid:border-red-600">
+            </div>
+
+            <div class="md:col-span-2">
+              <label for="observacoes" class="mb-1 block font-medium">Observações <span class="font-normal text-gray-600">(opcional)</span></label>
+              <textarea id="observacoes" name="observacoes" rows="3" placeholder="Ex.: é minha primeira doação"
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-200"></textarea>
+            </div>
+
+            <div class="flex items-center gap-2 md:col-span-2">
+              <input type="checkbox" id="requisitosOk" name="requisitosOk" required class="h-4 w-4 accent-red-700">
+              <label for="requisitosOk">Li e cumpro os requisitos para doar sangue</label>
+            </div>
+
+            <div class="md:col-span-2">
+              <button type="submit" class="w-full rounded-md bg-red-700 px-6 py-3 font-medium text-white hover:bg-red-800 md:w-auto">Confirmar agendamento</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-12 bg-gray-900 py-6 text-center text-sm text-gray-400">
+    <div class="mx-auto max-w-6xl px-4">
+      Doe Vida · Hemocentro fictício criado para a atividade de Tailwind CSS
+    </div>
+  </footer>
+
+  <dialog id="modalConfirmacao" class="m-auto w-11/12 max-w-md rounded-lg p-0 shadow-xl backdrop:bg-black/50" aria-labelledby="tituloModal">
+    <div class="flex items-center justify-between border-b border-gray-200 px-5 py-4">
+      <h2 id="tituloModal" class="text-lg font-semibold">Doação agendada!</h2>
+      <button type="button" class="fecharModal rounded p-1 text-gray-500 hover:bg-gray-100" aria-label="Fechar">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="px-5 py-4">
+      <p>Obrigado por escolher doar. Enviamos a confirmação para o seu e-mail.</p>
+      <p class="mb-2 mt-4 font-semibold">No dia da doação:</p>
+      <ul class="list-disc space-y-1 pl-5">
+        <li>Leve um documento oficial com foto.</li>
+        <li>Durma bem na noite anterior.</li>
+        <li>Faça uma refeição leve antes de ir.</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-end gap-2 border-t border-gray-200 px-5 py-4">
+      <button type="button" class="fecharModal rounded-md border border-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-100">Fechar</button>
+      <button type="button" class="fecharModal rounded-md bg-red-700 px-4 py-2 font-medium text-white hover:bg-red-800">Entendi</button>
+    </div>
+  </dialog>
+
+  <script>
+    const botaoMenu = document.getElementById('botaoMenu')
+    const menu = document.getElementById('menu')
+
+    botaoMenu.addEventListener('click', function () {
+      menu.classList.toggle('hidden')
+      botaoMenu.setAttribute('aria-expanded', !menu.classList.contains('hidden'))
+    })
+
+    const trilho = document.getElementById('trilho')
+    const slides = trilho.children
+    const indicadores = document.querySelectorAll('.indicador')
+    let atual = 0
+
+    function mostrarSlide(numero) {
+      atual = (numero + slides.length) % slides.length
+      trilho.style.transform = `translateX(-${atual * 100}%)`
+
+      indicadores.forEach(function (indicador, i) {
+        indicador.classList.toggle('bg-white', i === atual)
+        indicador.classList.toggle('bg-white/50', i !== atual)
+        indicador.setAttribute('aria-current', i === atual)
+      })
+    }
+
+    document.getElementById('anterior').addEventListener('click', function () {
+      mostrarSlide(atual - 1)
+    })
+
+    document.getElementById('proximo').addEventListener('click', function () {
+      mostrarSlide(atual + 1)
+    })
+
+    indicadores.forEach(function (indicador, i) {
+      indicador.addEventListener('click', function () {
+        mostrarSlide(i)
+      })
+    })
+
+    setInterval(function () {
+      mostrarSlide(atual + 1)
+    }, 5000)
+
+    const formAgendamento = document.getElementById('formAgendamento')
+    const modal = document.getElementById('modalConfirmacao')
+
+    formAgendamento.addEventListener('submit', function (evento) {
+      evento.preventDefault()
+      modal.showModal()
+      formAgendamento.reset()
+    })
+
+    document.querySelectorAll('.fecharModal').forEach(function (botao) {
+      botao.addEventListener('click', function () {
+        modal.close()
+      })
+    })
+
+    modal.addEventListener('click', function (evento) {
+      if (evento.target === modal) modal.close()
+    })
+  </script>
+</body>
+</html>
